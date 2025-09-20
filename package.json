@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/nathanbirch/cse341-apiCourse-code#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^17.2.2",
+    "express": "^4.21.2",
+    "mongoose": "^8.18.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
