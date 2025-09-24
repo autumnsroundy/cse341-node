@@ -1,5 +1,11 @@
-### Get all contacts
+### Get all contacts (localhost)
 GET http://localhost:3000/contact
 
-### Get one contact by ID (replace with a real ID from DB)
+### Get one contact by ID (localhost)
 GET http://localhost:3000/contact/68d34c4ba130673c4405a40b
+
+### Get all contacts (Render)
+GET https://cse341-node-3tie.onrender.com/contact
+
+### Get one contact by ID (Render) 
+GET https://cse341-node-3tie.onrender.com/contact/68d34c4ba130673c4405a40b
