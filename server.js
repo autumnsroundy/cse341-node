@@ -21,7 +21,7 @@ app.use('/contact', require('./routes/contact'));  // directly mount contacts
 
 // Root route for Render
 app.get('/', (req, res) => {
-  res.send('API is running! Use /contacts to see contacts.');
+  res.send('API is running! Use /contact to see contacts.');
 });
 
 // Optional test route
