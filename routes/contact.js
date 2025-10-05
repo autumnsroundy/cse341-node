@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
       birthday: savedContact.birthday
     });
   } catch (err) {
-    res.status(500).json({essage: err.message });
+    res.status(500).json({message: err.message });
   }
 });
 
@@ -79,7 +79,7 @@ router.delete('/:id', async (req, res) => {
     if(!deletedContact) {
       return res.status(404).json({ message: 'Contact not found' });
     }
-    res.sendStatus(204);
+    res.status(200).json({ message: 'Contact successfully deleted' });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
