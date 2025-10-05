@@ -28,53 +28,48 @@ router.get('/:id', async (req, res) => {
 // POST - create a new contact
 router.post('/', async (req, res) => {
   try {
-    const { name, email, phone, } = req.body;
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
     //ensure all fields are provided
-    if (!name || !email || !phone) {
+    if (!firstName || !lastName || !email || !favoriteColor || !birthday) {
       return res.status(400).json({message: 'All fields are required'});
     }
-    const newContact = new Contact({name, email, phone});
+    const newContact = new Contact({firstName, lastName, email, favoriteColor, birthday});
     const savedContact = await newContact.save();
     //return new contact ID
     res.status(201).json({ 
       id: savedContact._id,
-      name: savedContact.name,
+      firstName: savedContact.firstName,
+      lastName: savedContact.lastName,
       email: savedContact.email,
-      phone: savedContact.phone
+      favoriteColor: savedContact.favoriteColor,
+      birthday: savedContact.birthday
     });
   } catch (err) {
     res.status(500).json({essage: err.message });
   }
 });
 
-// PUT - update a contact (name, email, phone)
+// PUT - update a contact
 router.put('/:id', async (req, res) => {
   try {
-    const { name, email, phone } = req.body;
-
-    // Ensure all fields are provided
-    if (!name || !email || !phone) {
-      return res.status(400).json({ message: 'All fields (name, email, phone) are required' });
-    }
-
-    // Update only the allowed fields
+    // Update only the fields provided in req.body
     const updatedContact = await Contact.findByIdAndUpdate(
       req.params.id,
-      { name, email, phone }, // only update these fields
-      { new: true } // return the updated document
+      req.body,
+      { new: true } // return updated document
     );
 
     if (!updatedContact) {
       return res.status(404).json({ message: 'Contact not found' });
     }
 
-    // Return the full updated contact
     res.status(200).json(updatedContact);
 
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
+
 
 //DELETE a contact
 router.delete('/:id', async (req, res) => {

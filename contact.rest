@@ -20,20 +20,24 @@ POST http://localhost:3000/contact
 Content-Type: application/json
 
 { 
-    "name": "Autumn Roundy",
-    "email": "asroundy@byui.edu",
-    "phone": "907-2523"
+    "firstName": "Autumn",
+    "lastName": "Roundy",
+    "email": "autumnrorange@byui.edu",
+    "favoriteColor": "orange",
+    "birthday": "04-01-1998"
 }
 
-### PUT -Update Coontact : add ID after POST run
-PUT http://localhost:3000/contact/68e1db00c76b3cc8594878bd
+### PUT -Update Coontact : add ID after POST run!
+PUT http://localhost:3000/contact/
 Content-Type: application/json
 
 { 
-    "name": "Autumn Turner",
-    "email": "asroundy@byui.edu",
-    "phone": "907-2333"
+    "firstname": "Autumn",
+    "lastname": "Turner",
+    "email": "autumnrorange@byui.edu",
+    "favoriteColor": "orange",
+    "birthday": "04-01-2003"
 }
 
 ### DELETE contact : add ID after POST run
-DELETE http://localhost:3000/contact/68e1db00c76b3cc8594878bd
+DELETE http://localhost:3000/contact/68e1e204e040709cb3dd9475
