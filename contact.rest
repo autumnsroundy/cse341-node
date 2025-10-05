@@ -9,3 +9,31 @@ GET https://cse341-node-3tie.onrender.com/contact
 
 ### Get one contact by ID (Render) 
 GET https://cse341-node-3tie.onrender.com/contact/68d34c4ba130673c4405a40b
+
+### Week 03 assignment ###
+
+## POST (Render)
+
+
+### POST by ID (Localhost)
+POST http://localhost:3000/contact
+Content-Type: application/json
+
+{ 
+    "name": "Autumn Roundy",
+    "email": "asroundy@byui.edu",
+    "phone": "907-2523"
+}
+
+### PUT -Update Coontact : add ID after POST run
+PUT http://localhost:3000/contact/68e1db00c76b3cc8594878bd
+Content-Type: application/json
+
+{ 
+    "name": "Autumn Turner",
+    "email": "asroundy@byui.edu",
+    "phone": "907-2333"
+}
+
+### DELETE contact : add ID after POST run
+DELETE http://localhost:3000/contact/68e1db00c76b3cc8594878bd
