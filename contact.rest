@@ -66,4 +66,4 @@ DELETE http://localhost:3000/contact/
 
 ### DELETE (render)
 
-DELETE https://cse341-node-3tie.onrender.com/contact/68e1e641aef34429d6350405
+DELETE https://cse341-node-3tie.onrender.com/contact/
