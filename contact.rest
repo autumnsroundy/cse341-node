@@ -41,10 +41,7 @@ PUT http://localhost:3000/contact/
 Content-Type: application/json
 
 { 
-    "firstname": "Autumn",
-    "lastname": "Turner",
-    "email": "autumnrorange@byui.edu",
-    "favoriteColor": "orange",
+    "lastName": "Turner",
     "birthday": "04-01-2003"
 }
 
@@ -54,8 +51,8 @@ PUT https://cse341-node-3tie.onrender.com/contact/
 Content-Type: application/json
 
 { 
-    "firstname": "Autumn",
-    "lastname": "Turner",
+    "firstname": "Autumn Sage",
+    "lastname": "Roundy",
     "email": "autumnrorange@byui.edu",
     "favoriteColor": "orange",
     "birthday": "04-01-2003"
