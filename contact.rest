@@ -36,7 +36,7 @@ Content-Type: application/json
     "birthday": "04-01-1998"
 }
 
-### PUT (localhost) -Update Coontact : add ID after POST run! 
+### PUT (localhost) -Update Contact : add ID after POST run! 
 PUT http://localhost:3000/contact/
 Content-Type: application/json
 
