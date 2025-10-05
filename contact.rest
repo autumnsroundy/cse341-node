@@ -12,10 +12,7 @@ GET https://cse341-node-3tie.onrender.com/contact/68d34c4ba130673c4405a40b
 
 ### Week 03 assignment ###
 
-## POST (Render)
-
-
-### POST by ID (Localhost)
+### POST (Localhost)
 POST http://localhost:3000/contact
 Content-Type: application/json
 
@@ -27,7 +24,19 @@ Content-Type: application/json
     "birthday": "04-01-1998"
 }
 
-### PUT -Update Coontact : add ID after POST run!
+### POST (Render)
+POST https://cse341-node-3tie.onrender.com/contact
+Content-Type: application/json
+
+{ 
+    "firstName": "Autumn",
+    "lastName": "Roundy",
+    "email": "autumnrorange@byui.edu",
+    "favoriteColor": "orange",
+    "birthday": "04-01-1998"
+}
+
+### PUT (localhost) -Update Coontact : add ID after POST run! 
 PUT http://localhost:3000/contact/
 Content-Type: application/json
 
@@ -39,5 +48,22 @@ Content-Type: application/json
     "birthday": "04-01-2003"
 }
 
-### DELETE contact : add ID after POST run
-DELETE http://localhost:3000/contact/68e1e204e040709cb3dd9475
+### PUT (render)
+
+PUT https://cse341-node-3tie.onrender.com/contact/
+Content-Type: application/json
+
+{ 
+    "firstname": "Autumn",
+    "lastname": "Turner",
+    "email": "autumnrorange@byui.edu",
+    "favoriteColor": "orange",
+    "birthday": "04-01-2003"
+}
+
+### DELETE (localhost) contact : add ID after POST run
+DELETE http://localhost:3000/contact/
+
+### DELETE (render)
+
+DELETE https://cse341-node-3tie.onrender.com/contact/68e1e641aef34429d6350405
