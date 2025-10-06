@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const setupSwagger = require('./swagger');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -18,6 +19,9 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Mount routes
 app.use('/contact', require('./routes/contact'));  // directly mount contacts
+
+// Swagger setup
+setupSwagger(app);
 
 // Root route for Render
 app.get('/', (req, res) => {

@@ -2,6 +2,29 @@ const express = require('express');
 const router = express.Router();
 const Contact = require('../models/contact');
 
+/**
+ * @swagger
+ * /contact:
+ *   get:
+ *     summary: Get all contacts
+ *     responses:
+ *       200:
+ *         description: List of contacts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                     example: "John Doe"
+ *                   email:
+ *                     type: string
+ *                     example: "john@example.com"
+ */
+
 // GET all contacts
 router.get('/', async (req, res) => {
   try {
