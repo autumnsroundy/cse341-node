@@ -130,7 +130,7 @@
           "favoriteColor": { "type": "string", "example": "Blue" },
           "birthday": { "type": "string", "format": "date", "example": "1990-01-01" }
         },
-        "required": ["firstName", "lastName", "email"]
+        "required": ["firstName", "lastName", "email", "favoriteColor", "birthday"]
       }
     }
   },
