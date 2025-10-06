@@ -3,12 +3,12 @@
   "info": {
     "title": "Contacts API",
     "version": "1.0.0",
-    "description": "API documentation for Contacts project"
+    "description": "API documentation for the Contacts project"
   },
   "servers": [
     {
       "url": "https://cse341-node-3tie.onrender.com",
-      "description": "production server"
+      "description": "Production server"
     }
   ],
   "paths": {
@@ -17,32 +17,124 @@
         "summary": "Get all contacts",
         "responses": {
           "200": {
-            "description": "List of contacts",
+            "description": "List of all contacts",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "example": "John Doe"
-                      },
-                      "email": {
-                        "type": "string",
-                        "example": "john@example.com"
-                      }
-                    }
-                  }
+                  "items": { "$ref": "#/components/schemas/Contact" }
                 }
               }
             }
           }
         }
+      },
+      "post": {
+        "summary": "Create a new contact",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Contact" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Contact created successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Contact" }
+              }
+            }
+          },
+          "400": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/contact/{id}": {
+      "get": {
+        "summary": "Get a contact by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Contact ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact object",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Contact" }
+              }
+            }
+          },
+          "404": { "description": "Contact not found" }
+        }
+      },
+      "put": {
+        "summary": "Update a contact by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Contact ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Contact" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Contact updated successfully" },
+          "400": { "description": "Invalid input" },
+          "404": { "description": "Contact not found" }
+        }
+      },
+      "delete": {
+        "summary": "Delete a contact by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Contact ID"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Contact deleted successfully" },
+          "404": { "description": "Contact not found" }
+        }
       }
     }
   },
-  "components": {},
-  "tags": []
+  "components": {
+    "schemas": {
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "firstName": { "type": "string", "example": "John" },
+          "lastName": { "type": "string", "example": "Doe" },
+          "email": { "type": "string", "example": "john@example.com" },
+          "favoriteColor": { "type": "string", "example": "Blue" },
+          "birthday": { "type": "string", "format": "date", "example": "1990-01-01" }
+        },
+        "required": ["firstName", "lastName", "email"]
+      }
+    }
+  },
+  "tags": [
+    { "name": "Contacts", "description": "Operations related to contacts" }
+  ]
 }
