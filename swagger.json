@@ -1,0 +1,48 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Contacts API",
+    "version": "1.0.0",
+    "description": "API documentation for Contacts project"
+  },
+  "servers": [
+    {
+      "url": "https://cse341-node-3tie.onrender.com",
+      "description": "production server"
+    }
+  ],
+  "paths": {
+    "/contact": {
+      "get": {
+        "summary": "Get all contacts",
+        "responses": {
+          "200": {
+            "description": "List of contacts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "John Doe"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "john@example.com"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

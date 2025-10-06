@@ -1,5 +1,6 @@
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const fs = require('fs');
 
 //swagger definition
 const swaggerDefinition = {
@@ -25,6 +26,9 @@ const options = {
 
 //initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(options);
+
+// Write swagger.json to project root
+fs.writeFileSync('./swagger.json', JSON.stringify(swaggerSpec, null, 2), 'utf-8');
 
 function setupSwagger(app) {
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
