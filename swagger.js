@@ -11,7 +11,7 @@ const swaggerDefinition = {
     },
     servers: [
         {
-            url: 'https://cse341-node-3tie.onrender.com/contact',
+            url: 'https://cse341-node-3tie.onrender.com',
             description: 'production server',
         },
     ],
